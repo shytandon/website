@@ -94,7 +94,7 @@ body {
 .video-container iframe {
   width: 100%;
   max-width: 800px;
-  height: auto;
+  height: 450px;
 
   border: 1px solid rgba(0,0,0,0.3);
   box-shadow: 0 10px 30px rgba(0,0,0,0.4);
