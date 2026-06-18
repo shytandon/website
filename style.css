@@ -498,13 +498,15 @@ body {
   }
 
   .name {
-    font-size: clamp(4.8rem, 16vw, 7rem);
-    transform: scaleX(1.08);
-    top: -20px;
+    font-size: clamp(4.2rem, 14vw, 5.8rem);
+    transform: scaleX(1);
+    top: -10px;
+    margin: 0 0 50px 0;
+    line-height: 1;
   }
 
   .name-link:hover .name {
-    transform: scaleX(1.08) translateY(-1px);
+    transform: scaleX(1) translateY(-1px);
   }
 
   .work-item {
