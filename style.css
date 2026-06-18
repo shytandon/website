@@ -206,7 +206,7 @@ body {
 }
 
 .name-link:hover .name {
-  transform: scaleX(1.35) translateY(-1px);
+  transform: scaleX(1.20) translateY(-1px);
   text-shadow:
     0 1px 0 rgba(255,255,255,1),
     0 6px 14px rgba(0,0,0,0.55),
