@@ -450,11 +450,14 @@ body {
   }
 
   .writing-list {
+    width: 100%;
+    max-width: 100%;
     gap: 36px;
+    align-items: center;
   }
 
   .top-banner-border {
-    height: 132px;
+    height: 155px;
   }
 
   .archive-title {
@@ -463,11 +466,11 @@ body {
   }
 
   .top-nav {
-    top: 78px;
+    top: 82px;
     gap: 4px;
     max-width: 95vw;
-	flex-wrap: wrap;
-	justify-content: center;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .nav-button {
@@ -481,7 +484,7 @@ body {
   }
 
   .top-center-image-wrap {
-    top: 182px;
+    top: 205px;
     width: min(86vw, 340px);
   }
 
@@ -490,16 +493,38 @@ body {
   }
 
   .content {
-    padding: 380px 20px 110px 20px;
+    padding: 400px 20px 110px 20px;
+    overflow-x: hidden;
   }
 
   .name {
     font-size: clamp(4.8rem, 16vw, 7rem);
+    transform: scaleX(1.08);
+    top: -20px;
+  }
+
+  .name-link:hover .name {
+    transform: scaleX(1.08) translateY(-1px);
+  }
+
+  .work-item {
+    width: 100%;
+    max-width: 92vw;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
   }
 
   .work-image {
-    width: min(100%, 320px);
+    width: 100%;
+    max-width: 92vw;
     height: 200px;
+  }
+
+  .work-text {
+    width: 100%;
+    max-width: 92vw;
+    align-items: center;
   }
 
   .work-title {
@@ -509,6 +534,11 @@ body {
   .work-subtitle,
   .work-abstract {
     font-size: 0.95rem;
+  }
+
+  .work-abstract {
+    max-width: 92vw;
+    overflow-wrap: break-word;
   }
 
   .site-footer {
