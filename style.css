@@ -20,6 +20,7 @@ body {
 
 .page {
   position: relative;
+  isolation: isolate;
   min-height: 100vh;
   background-image: url("images/purple-texture.jpg");
   background-repeat: repeat;
@@ -93,24 +94,24 @@ body {
   justify-content: center;
   padding: 14px 14px 12px 14px;
   text-decoration: none;
-  border-radius: 8px;
-  background: black;
-  border: 1px solid rgba(255,255,255,0.65);
-  box-shadow:
-    0 2px 0 rgba(255,255,255,0.12) inset,
-    0 -2px 0 rgba(0,0,0,0.25) inset,
-    0 4px 10px rgba(0,0,0,0.38),
-    0 0 8px rgba(255,255,255,0.06);
-  transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+
+  background: #442937;
+
+  border-top: 3px solid #9e7f8f;
+  border-left: 3px solid #9e7f8f;
+  border-right: 3px solid #140b10;
+  border-bottom: 3px solid #140b10;
+
+  box-shadow: 6px 6px 0 #000;
+
+  border-radius: 0;
+
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 
 .nav-button:hover {
-  transform: translateY(-2px);
-  box-shadow:
-    0 2px 0 rgba(255,255,255,0.14) inset,
-    0 -2px 0 rgba(0,0,0,0.25) inset,
-    0 8px 16px rgba(0,0,0,0.42),
-    0 0 10px rgba(255,255,255,0.08);
+  transform: translate(-2px, -2px);
+  box-shadow: 10px 10px 0 rgba(0,0,0,0.7);
 }
 
 .nav-button:active {
@@ -153,12 +154,119 @@ body {
   box-shadow: 0 0 18px rgba(0,0,0,0.4);
 }
 
+.top-side-widgets {
+  position: absolute;
+  top: 160px;
+  left: 0;
+  width: 100%;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.side-widget {
+  position: absolute;
+  width: 250px;
+  font-family: 'VT323', monospace;
+  color: white;
+  text-align: center;
+  pointer-events: auto;
+}
+
+.memory-widget {
+  left: 100px;
+}
+
+.links-widget {
+  right: 100px;
+}
+
+.mini-win95-heading {
+  background: #442937;
+  padding: 6px 8px;
+  font-family: 'VT323', monospace;
+  font-size: 1.7rem;
+  padding: 8px 10px;
+
+  border-top: 3px solid #9e7f8f;
+  border-left: 3px solid #9e7f8f;
+  border-right: 3px solid #140b10;
+  border-bottom: 3px solid #140b10;
+
+  box-shadow: 6px 6px 0 #000;
+  margin-bottom: 14px;
+}
+
+.memory-item {
+  margin-bottom: 16px;
+}
+
+.memory-item img {
+  width: 170px;
+  height: auto;
+  display: block;
+  margin: 0 auto 4px auto;
+  border: 1px solid rgba(255,255,255,0.8);
+  box-shadow: 0 0 18px rgba(0,0,0,0.35);
+}
+
+.memory-item span {
+  display: block;
+  font-size: 1rem;
+}
+
+.links-widget a {
+  display: block;
+  color: #c5a6b2;
+  font-family: 'VT323', monospace;
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+  text-decoration: underline;
+}
+
+.rust-belt-badge {
+  margin-top: 26px;
+  text-align: center;
+  font-family: 'VT323', monospace;
+}
+
+.rust-belt-badge img {
+  width: 100%;
+  max-width: 220px;
+  height: 70px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 10px auto;
+
+  border: 1px solid rgba(255,255,255,0.8);
+  box-shadow: 0 0 18px rgba(0,0,0,0.35);
+}
+
+.rust-belt-button {
+  background: #442937;
+  padding: 8px 10px;
+  font-size: 1.15rem;
+  color: white;
+
+  border-top: 3px solid #9e7f8f;
+  border-left: 3px solid #9e7f8f;
+  border-right: 3px solid #140b10;
+  border-bottom: 3px solid #140b10;
+
+  box-shadow: 6px 6px 0 #000;
+}
+
+.rust-belt-location {
+  margin-top: 8px;
+  font-size: 1rem;
+  color: rgba(255,255,255,0.9);
+}
+
 /* OVERLAY */
 
 .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.45);
+  background: rgba(0,0,0,0.05);
   z-index: 1;
 }
 
@@ -192,27 +300,59 @@ body {
   transform: scaleX(1.35);
   margin: 0 0 50px 0;
   position: relative;
-  top: -20px;
+  top: 0;
   text-align: center;
   font-weight: normal;
   color: white;
+  white-space: nowrap;
   text-shadow:
     0 1px 0 rgba(255,255,255,0.95),
     0 4px 10px rgba(0,0,0,0.5),
     0 0 8px rgba(255,255,255,0.34),
     0 0 18px rgba(255,255,255,0.2),
     0 0 32px rgba(255,255,255,0.12);
-  transition: transform 0.18s ease, text-shadow 0.18s ease;
+  transition: none;
 }
 
 .name-link:hover .name {
-  transform: scaleX(1.20) translateY(-1px);
+  transform: scaleX(1.35);
+}
+
+.name-row {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.name-swirl {
+  position: absolute;
+  width: 400px;
+  height: auto;
+  opacity: 0.9;
+  filter: drop-shadow(2px 2px 0 #000);
+}
+
+.name-swirl-left {
+  right: 90%;
+  transform: translateY(-100px);
+}
+
+.name-swirl-right {
+  left: 90%;
+  transform: translateY(-100px);
+}
+
+.name-divider {
+  text-align: center;
+  font-size: 1.7rem;
+  color: #c5a6b2;
+  margin: -10px 0 20px 0;
+  letter-spacing: 0.4em;
+
   text-shadow:
-    0 1px 0 rgba(255,255,255,1),
-    0 6px 14px rgba(0,0,0,0.55),
-    0 0 10px rgba(255,255,255,0.4),
-    0 0 22px rgba(255,255,255,0.24),
-    0 0 40px rgba(255,255,255,0.14);
+  1px 1px 0 #24161c,
+  2px 2px 0 #000;
 }
 
 /* QUOTE */
@@ -252,10 +392,22 @@ body {
   box-shadow: 0 0 22px rgba(0,0,0,0.45);
 }
 
+.image-divider {
+  text-align: center;
+  font-size: 1.7rem;
+  color: #c5a6b2;
+  margin: -15px 0 40px 0;
+  letter-spacing: 0.3em;
+
+  text-shadow:
+  1px 1px 0 #24161c,
+  2px 2px 0 #000;
+}
+
 /* WRITING LIST */
 
 .writing-list {
-  width: 95vw;
+  width: min(95vw, 1200px);
   max-width: none;
   margin: 0 auto;
   display: flex;
@@ -271,7 +423,7 @@ body {
   text-decoration: none;
   color: white;
   text-align: left;
-  padding: 12px 0;
+  padding: 0;
   transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
@@ -280,8 +432,7 @@ body {
 }
 
 .work-item:hover {
-  opacity: 0.88;
-  transform: translateY(-2px);
+  opacity: 1;
 }
 
 .work-image {
@@ -328,6 +479,67 @@ body {
   line-height: 1.7;
   color: rgba(255,255,255,0.92);
   max-width: 100%;
+}
+
+/* WINDOWS 95 POST BOXES */
+
+.win95-box {
+  background: #442937;
+  width: 100%;
+  max-width: 100%;
+  padding: 20px;
+
+  border-top: 3px solid #9e7f8f;
+  border-left: 3px solid #9e7f8f;
+  border-right: 3px solid #140b10;
+  border-bottom: 3px solid #140b10;
+
+  box-shadow: 12px 12px 0 #000;
+  border-radius: 0;
+}
+
+.win95-box:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 20px 20px 0 rgba(0,0,0,0.7);
+  opacity: 1;
+}
+
+.footer-gif {
+  text-align: center;
+  margin: -100px 0 25px 0;
+}
+
+.footer-gif img {
+  width: min(450px, 70vw);
+  height: auto;
+}
+
+/* MANIFESTO BACKGROUND */
+
+.manifesto-bg {
+  position: absolute;
+  top: 1670px;
+  left: 0;
+  width: 100vw;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.manifesto-line {
+  position: absolute;
+  left: 0;
+  width: 100vw;
+  white-space: nowrap;
+  color: rgba(255,255,255,0.16);
+  line-height: 1.1;
+}
+
+.manifesto-word {
+  display: inline-block;
+  margin-right: 0.35em;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.35);
 }
 
 /* FOOTER */
@@ -457,7 +669,7 @@ body {
   }
 
   .top-banner-border {
-    height: 155px;
+    height: 125px;
   }
 
   .archive-title {
@@ -466,7 +678,7 @@ body {
   }
 
   .top-nav {
-    top: 82px;
+    top: 50px;
     gap: 4px;
     max-width: 95vw;
     flex-wrap: wrap;
@@ -484,7 +696,7 @@ body {
   }
 
   .top-center-image-wrap {
-    top: 205px;
+    top: 155px;
     width: min(86vw, 340px);
   }
 
@@ -493,20 +705,56 @@ body {
   }
 
   .content {
-    padding: 400px 20px 110px 20px;
-    overflow-x: hidden;
+    padding: 360px 20px 110px 20px;
   }
 
   .name {
-    font-size: clamp(4.2rem, 14vw, 5.8rem);
-    transform: scaleX(1);
-    top: -10px;
-    margin: 0 0 50px 0;
-    line-height: 1;
+    font-size: clamp(3.6rem, 11vw, 5rem);
+    transform: scaleX(1.15);
+    top: 15px;
+    white-space: nowrap;
   }
 
   .name-link:hover .name {
-    transform: scaleX(1) translateY(-1px);
+    transform: scaleX(1.15);
+  }
+
+  .name-swirl {
+    display: none;
+  }
+
+  .name-divider {
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+  }
+
+  /* SIDE WIDGETS */
+
+  .top-side-widgets {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    margin: 40px auto 35px auto;
+    width: 100%;
+    pointer-events: auto;
+  }
+
+  .side-widget,
+  .memory-widget,
+  .links-widget {
+    position: static;
+    width: 85vw;
+    max-width: 320px;
+    left: auto;
+    right: auto;
+  }
+
+  .image-divider {
+    font-size: 0.50rem;
+    letter-spacing: 0.15em;
+    margin: -20px 0 30px 0;
   }
 
   .work-item {
@@ -547,5 +795,9 @@ body {
     font-size: 0.8rem;
     line-height: 1.7;
     padding-bottom: 26px;
+  }
+
+  .manifesto-bg {
+    top: 2000px;
   }
 }
