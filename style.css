@@ -266,7 +266,7 @@ body {
 .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.05);
+  background: transparent;
   z-index: 1;
 }
 
