@@ -504,16 +504,6 @@ body {
   opacity: 1;
 }
 
-.footer-gif {
-  text-align: center;
-  margin: -100px 0 25px 0;
-}
-
-.footer-gif img {
-  width: min(450px, 70vw);
-  height: auto;
-}
-
 /* MANIFESTO BACKGROUND */
 
 .manifesto-bg {
