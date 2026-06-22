@@ -508,7 +508,7 @@ body {
 
 .manifesto-bg {
   position: absolute;
-  top: 1670px;
+  top: 100px;
   left: 0;
   width: 100vw;
   z-index: 0;
@@ -788,6 +788,6 @@ body {
   }
 
   .manifesto-bg {
-    top: 2000px;
+    top: 100px;
   }
 }
