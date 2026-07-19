@@ -77,13 +77,7 @@
 
     <div class="overlay"></div>
 
-    <div class="manifesto-bg" aria-hidden="true">
-  <p id="manifesto-text">
-    TRANSFORM TRANSCEND BECOME DISSOLVE MUTATE DREAM DESIRE CREATE RECREATE REMEMBER IMMATERIAL MATERIAL GIRL MATERIAL BOY IMMATERIAL BOY IMMATERIAL GIRL SIGNAL ELECTRICITY ELECTRIC GIRL ELECTRIC BOY REDUCE ME TO NOTHINGNESS REDUCE ME TO LIGHT REDUCE ME TO STATIC REDUCE ME TO LOVE REDUCE ME TO SIGNAL BECOME EVERYTHING BECOME NOTHING BECOME MEMORY BECOME DESIRE BECOME LIGHT BECOME WATER BECOME AIR BECOME SIGNAL BECOME STATIC BECOME LOVE BECOME DREAM TRANSMIT RECEIVE TRANSMIT RECEIVE TRANSMIT RECEIVE REGENERATE REANIMATE REPEAT MUTATE EVOLVE CREATE DESTROY CREATE DESTROY TRANSCEND THE BODY TRANSCEND THE IMAGE TRANSCEND THE NAME TRANSCEND THE SELF TRANSCEND THE LIMIT EMBODY DESIRE EMBODY MEMORY EMBODY SIGNAL EMBODY LOVE EMBODY DREAM REMEMBER FORGET REMEMBER FORGET DREAM AGAIN DREAM AGAIN DREAM AGAIN IMMATERIAL GIRL MATERIAL GIRL IMMATERIAL BOY MATERIAL BOY ELECTRIC GIRL SIGNAL GIRL STATIC GIRL SIGNAL BOY ELECTRIC BOY MUTATE RECONFIGURE
-  </p>
-</div>
-
-    <main class="content">
+        <main class="content">
       <a href="about.html" class="name-link name-row">
       <img src="images/swirl_left_white.png" class="name-swirl name-swirl-left" alt="">
       <h1 class="name">Shy Tandon</h1>
@@ -221,63 +215,7 @@ and bluer. The pictures were clear like crystal..."</span>
 
   </div>
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const manifestoBox = document.querySelector(".manifesto-bg");
-  const manifestoText = document.querySelector("#manifesto-text");
 
-  if (!manifestoBox || !manifestoText) return;
-
-  const words = manifestoText.textContent.trim().split(/\s+/);
-  manifestoText.style.display = "none";
-
-  const fonts = [
-  "'VT323', monospace",
-  "'VT323', monospace",
-  "'VT323', monospace",
-  "'Times New Roman', serif",
-  "'Times New Roman', serif",
-  "'EB Garamond', serif",
-  "'Georgia', serif",
-  "'Monsieur La Doulaise', cursive"
-];
-
-  const startY = manifestoBox.offsetTop;
-  const pageHeight = document.documentElement.scrollHeight;
-  const totalHeight = pageHeight - startY + 50;
-
-  manifestoBox.style.height = totalHeight + "px";
-
-  let index = 0;
-  let y = 0;
-
-  while (y < totalHeight) {
-    const line = document.createElement("div");
-    line.className = "manifesto-line";
-    line.style.top = y + "px";
-
-    const lineWordCount = 18 + Math.floor(Math.random() * 16);
-
-    for (let i = 0; i < lineWordCount; i++) {
-      if (index >= words.length) index = 0;
-
-      const span = document.createElement("span");
-      span.className = "manifesto-word";
-      span.textContent = words[index];
-
-      span.style.fontFamily = fonts[Math.floor(Math.random() * fonts.length)];
-      span.style.fontSize = (1 + Math.random() * 2.8) + "rem";
-      span.style.opacity = 0.12 + Math.random() * 0.00;
-
-      line.appendChild(span);
-      index++;
-    }
-
-    manifestoBox.appendChild(line);
-    y += 60 + Math.random() * 50;
-  }
-});
-</script>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
